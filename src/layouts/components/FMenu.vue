@@ -33,28 +33,23 @@
 </template>
 
 <script setup>
-import { useRouter, useRoute, onBeforeRouteUpdate } from 'vue-router';
+import { useRouter, useRoute } from 'vue-router';
 import { computed, ref } from 'vue';
 import { useStore } from 'vuex'
 const router = useRouter()
 const store = useStore()
 const route = useRoute()
-//默认选中当前路由路径
+//加载时候默认激活菜单；（刷新的时候）
 const defaultActive = ref(route.path)
 //计算属性获取api接口文档里面的menus
 const asideMenus = computed(()=>store.state.menus)
 const handleSelect = (e) => {
+    console.log(e);
+    console.log(defaultActive.value);
     router.push(e)
 }
 //设置是否折叠
 const isCollapse = computed(() => !(store.state.asideWidth == "250px"))
-
-//监视标签路由跳转Menu菜单导航也实现跳转
-// onBeforeRouteUpdate((to, from) => {
-//         //让他属于激活的状态
-//         const r = to.path
-//         handleSelect(r)
-//     })
 </script>
 
 <style>

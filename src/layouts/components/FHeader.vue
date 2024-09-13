@@ -6,37 +6,30 @@
             </el-icon>
             商城后台
         </span>
-        <!-- <el-tooltip effect="light" content="折叠" placement="bottom"> -->
-            <el-icon class="icon-btn" @click="$store.commit('handleAideWidth')">
-                <Fold v-if="$store.state.asideWidth == '250px'"/>
-                <Expand v-else/>
-            </el-icon>
-        <!-- </el-tooltip> -->
+        <el-icon class="icon-btn" @click="$store.commit('handleAideWidth')">
+            <Fold v-if="$store.state.asideWidth == '250px'" />
+            <Expand v-else />
+        </el-icon>
 
         <el-tooltip effect="light" content="刷新" placement="bottom">
             <el-icon class="icon-btn" @click="handleRefresh">
                 <Refresh />
             </el-icon>
         </el-tooltip>
-
-        <div class="ml-auto flex items-center"> <!--顶到最右边的位置-->
+        <!--顶到最右边的位置-->
+        <div class="ml-auto flex items-center">
             <el-tooltip effect="light" content="全屏" placement="bottom">
                 <el-icon class="icon-btn" @click="toggle">
                     <FullScreen v-if="!isFullscreen" />
-                    <Aim v-else />
+                    <Rank v-else />
                 </el-icon>
             </el-tooltip>
-            <!-- <el-dropdown class="dropdown" @command="handleCommand" @mouseout="hover = false" @mouseover="hover = true" hide-timeout="250"> -->
-                <el-dropdown class="dropdown" @command="handleCommand">   
+            <el-dropdown class="dropdown" @command="handleCommand">
                 <span>
-                    <!-- <el-avatar :size="25" :src="$store.state.user.avatar" class="ml-5 mr-2" /> -->
                     <el-avatar :size="25" :src="photo" class="ml-5 mr-2" />
                     {{ $store.state.user.username }}
-                    <!-- <el-icon class="el-icon--right"> -->
-                    <el-icon>    
-                        <!-- <arrow-down v-if="!hover" />
-                        <arrow-up v-else /> -->
-                        <arrow-down/>
+                    <el-icon>
+                        <arrow-down />
                     </el-icon>
                 </span>
                 <template #dropdown>
@@ -71,8 +64,6 @@
 </template>
 
 <script setup>
-// import { useRouter } from 'vue-router'
-// import { useStore } from 'vuex'
 import photo from '../photos/1.jpg'
 import { useFullscreen } from '@vueuse/core'
 import { useRepassword, useLogout } from '~/composables/useManger'
@@ -94,8 +85,6 @@ const {
 const {
     handlelogout
 } = useLogout()
-// const router = useRouter()
-// const store = useStore()
 
 
 //创建一个事件来执行command属性，选择退出登录还是修改密码
@@ -116,6 +105,7 @@ const handleRefresh = () => location.reload()
 <style>
 .f-header {
     @apply flex items-center bg-indigo-400 text-light-50 fixed left-0 right-0 top-0;
+    /*background: linear-gradient(180deg, #00923d 0%, #F5F5F5 100%, #f7c101 100%);*/
     height: 64px;
     z-index: 1000;
 }
@@ -147,14 +137,5 @@ const handleRefresh = () => location.reload()
     /* color: var(--el-color-primary); */
     outline: none;
 }
-
-/* .tooltip-box{
-    width: 300px;
-    margin-top: 10px;
-} */
-
-/* el-icon{
-    transition: 1s;
-} */
 </style>
 

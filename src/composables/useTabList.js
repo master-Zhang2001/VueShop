@@ -2,6 +2,7 @@ import { ref } from 'vue'
 //监听的方法
 import { useRoute, onBeforeRouteUpdate,useRouter } from 'vue-router'
 import { useCookies } from '@vueuse/integrations/useCookies'
+// import { handleSelect } from '~/layouts/components/FMenu.vue'
 // import { router } from '~/router'
 export function useTabList() {
     //实现路由的跳转
@@ -44,6 +45,8 @@ export function useTabList() {
             title: to.meta.title,
             path: to.path
         })
+        //让菜单也实现跳转
+        // handleSelect(to);
     })
 
     //点击标签导航之后实现路由的跳转

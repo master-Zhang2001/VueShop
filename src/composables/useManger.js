@@ -46,7 +46,7 @@ export function useRepassword() {
             // }
         ]
     }
-    //定义一个formref的响应式数据，设他为空。！！！！！！！！！！！
+    //定义一个formref的Ref节点数据
     const formRef = ref(null)
     //设置按键加载中的状态
     // const loading = ref(null)
@@ -70,8 +70,14 @@ export function useRepassword() {
                 })
         })
     }
-    const openRepasswordForm = () => formDrawerRef.value.open()
-
+    // const openRepasswordForm = () => formDrawerRef.value.open()
+    // 打开修改密码的表单前需要清空之前的数据
+    const openRepasswordForm = () => {
+        form.oldpassword = ""
+        form.password = ""
+        form.repassword = ""
+        formDrawerRef.value.open()
+    }
     return {
         formDrawerRef,
         form,

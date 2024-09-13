@@ -42,6 +42,7 @@ const handleChoose = (type) => {
 }
 
 var myChart = null
+//挂载完毕
 onMounted(() => {
     // 拿到DOM元素chart
     var chartDom = document.getElementById('chart')
@@ -50,7 +51,7 @@ onMounted(() => {
     getDate()
 })
 
-//销毁节点 释放空间！！！！！！
+//销毁节点 释放空间！！！！！！卸载前
 onBeforeUnmount(() => {
     if (myChart) {
         echarts.dispose(myChart)

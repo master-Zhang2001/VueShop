@@ -23,6 +23,11 @@
 import { ref } from 'vue'
 const showDrawer = ref(false)
 
+//父传子props
+//抽屉标题
+//抽屉大小
+//是否销毁
+//确认按钮文字
 const props = defineProps({
     title: String,
     size: {

@@ -3,6 +3,7 @@ import App from './App.vue'
 //引入elementsplus
 import ElementPlus from 'element-plus' 
 import 'element-plus/dist/index.css'
+import { ElLoading } from 'element-plus'
 //全局引入elementPlus图标
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'  
 //引入路由
@@ -13,6 +14,7 @@ import store from './store'
 import 'animate.css'
 
 const app = createApp(App)
+app.directive('loading',ElLoading.directive)
 app.use(ElementPlus)
 //此处导入windi.css方便对于一些css样式库的调用
 import 'virtual:windi.css'

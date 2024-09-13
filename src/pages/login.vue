@@ -1,15 +1,16 @@
 <!-- 登录页面：需要兼容移动端 -->
 <template>
-    <el-row class="login-container"> 
+    <el-row class="login-container">
         <!-- 左边 --> <!-- flex-col是垂直显示 -->
         <el-col :lg="16" :md="12" class="left">
-            <div>
+            <div class="animate__animated animate__bounceInDown animate__delay-0.5s">
                 <div>欢迎来到注册登录页面</div>
                 <div>关于vite+vue3+elementsplus+windiCss构建的前端页面项目</div>
             </div>
         </el-col>
         <!-- 右边 -->
         <el-col :lg="8" :md="12" class="right">
+            <!-- <div class="animate__animated animate__bounceInDown"> -->
             <!-- 表单前的一些元素文字 -->
             <h1 class="title">欢迎回来</h1>
             <!-- 外间距是my-5 -->
@@ -46,26 +47,19 @@
                     <el-button class="w-[250px]" round type="primary" @click="onSubmit" :loading="loading">登录</el-button>
                 </el-form-item>
             </el-form>
+            <!-- </div> -->
         </el-col>
     </el-row>
 </template>
 
 <script setup>
 import { ref, reactive, onMounted, onBeforeUnmount } from 'vue'
-// 引入登录方法
-// import { login } from '~/api/manager' //getinfo
 //引入报错方法（消息提示框）
 import { toast } from '~/composables/util'
-
 //引入路由实现页面跳转
 import { useRouter } from 'vue-router'
-
-//引入setToken方法
-// import { setToken } from '~/composables/auth'
-
 import { useStore } from 'vuex'
 
-// do not use same name with ref
 const form = reactive({
     username: "",
     password: ""
@@ -132,15 +126,10 @@ onMounted(() => {
 onBeforeUnmount(() => {
     document.removeEventListener("keyup", onKeyUp)
 })
-
-
-
 </script>
-
-
 <!-- 下面对style进行样式抽离：简化templete里面的代码 -->
 <style scoped>
-/* <!--铺满屏幕的意思--> */
+/* 铺满屏幕的意思 */
 .login-container {
     @apply min-h-screen;
 }
@@ -171,4 +160,5 @@ onBeforeUnmount(() => {
 
 .right .line {
     @apply h-[1px] w-16 bg-gray-300;
-}</style>
+}
+</style>
