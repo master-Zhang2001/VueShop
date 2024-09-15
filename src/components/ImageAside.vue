@@ -69,6 +69,8 @@ function getData(p = null) {
     loading.value = true
     getImageClassList(currentPage.value)
         .then(res => {
+            console.log(res);
+            
             total.value = res.totalCount
             loading.value = true
             //高亮第一个选项,默认第一个是高亮的或者说选中的

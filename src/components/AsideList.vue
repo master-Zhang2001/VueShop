@@ -5,7 +5,7 @@
             <slot />
         </span>
         <!-- .stop是为了防止触发未选中项的事件之后又选中该事件的文本框 -->
-        <el-button class="ml-auto px-1" text type="primary" size="small" @click.stop="$emit('edit')">
+        <el-button class="ml-auto px-1" link type="primary" size="small" @click="$emit('edit')">
             <el-icon :size="12">
                 <Edit />
             </el-icon>
@@ -13,7 +13,7 @@
         <el-popconfirm title="是否要删除该分类？" confirm-button-text="确定" cancel-button-text="取消"
             @confirm.stop = "$emit('delete')">
             <template #reference>
-                <el-button class="px-1" text type="primary" size="small">
+                <el-button class="px-1" link type="primary" size="small">
                     <el-icon :size="12">
                         <Close />
                     </el-icon>
